@@ -1,25 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:project_one/provider/state_provider.dart';
+
+import 'show_data.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      body: Consumer(
-        builder: (context, ref, child) {
-          int count = ref.watch(dataProvider);
-          return Center(
-            child: Text(count.toString()),
-          );
-        },
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          ref.read(dataProvider.notifier).state++;
-        },
-        child: const Icon(Icons.add),
+      body: Center(
+        child: MaterialButton(
+          color: Theme.of(context).colorScheme.primary,
+          onPressed: () {
+            Navigator.of(context).push(MaterialPageRoute(
+              builder: (ctx) => const ShowWeather(),
+            ));
+          },
+          child: const Text('Check Weather'),
+        ),
       ),
     );
   }
