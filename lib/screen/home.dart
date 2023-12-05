@@ -13,10 +13,10 @@ class HomeScreen extends ConsumerWidget {
           color: Theme.of(context).colorScheme.primary,
           onPressed: () {
             Navigator.of(context).push(MaterialPageRoute(
-              builder: (ctx) => const ShowWeather(),
+              builder: (ctx) => const ShowData(),
             ));
           },
-          child: const Text('StateNotifierProvider'),
+          child: const Text('ChangeNotifierProvider'),
         ),
       ),
     );
