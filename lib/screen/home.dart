@@ -16,7 +16,7 @@ class HomeScreen extends ConsumerWidget {
               builder: (ctx) => const ShowData(),
             ));
           },
-          child: const Text('ChangeNotifierProvider'),
+          child: const Text('AutoDispose'),
         ),
       ),
     );

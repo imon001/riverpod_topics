@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:project_one/provider/change_notifier_provider.dart';
+import 'package:project_one/provider/auto_dispose.dart';
 
 class ShowData extends ConsumerWidget {
   const ShowData({super.key});
@@ -9,7 +9,7 @@ class ShowData extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('User'),
+        title: const Text('AutoDispose'),
       ),
       body: Consumer(
         builder: (context, ref, child) {

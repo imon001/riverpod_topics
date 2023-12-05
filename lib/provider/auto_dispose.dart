@@ -1,4 +1,4 @@
-import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class User extends ChangeNotifier {
@@ -10,6 +10,6 @@ class User extends ChangeNotifier {
   }
 }
 
-final nameProvider = ChangeNotifierProvider<User>((ref) {
+final nameProvider = ChangeNotifierProvider.autoDispose<User>((ref) {
   return User();
 });
