@@ -16,7 +16,7 @@ class HomeScreen extends ConsumerWidget {
               builder: (ctx) => const ShowWeather(),
             ));
           },
-          child: const Text('StreamProvider'),
+          child: const Text('StateNotifierProvider'),
         ),
       ),
     );
