@@ -1,3 +1,6 @@
-Stream<int> fetchNmbrs() {
-  return Stream<int>.periodic(const Duration(seconds: 2), (number) => number).take(100);
+Future<String> getWeatherData(String city) async {
+  return await Future.delayed(
+    const Duration(seconds: 2),
+    () => 'City: $city | Temp: 33°C',
+  );
 }

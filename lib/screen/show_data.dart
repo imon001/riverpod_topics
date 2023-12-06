@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:project_one/provider/auto_dispose.dart';
+
+import '../provider/family_modifier.dart';
 
 class ShowData extends ConsumerWidget {
   const ShowData({super.key});
@@ -9,22 +10,19 @@ class ShowData extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('AutoDispose'),
+        title: const Text('Weather'),
       ),
-      body: Consumer(
-        builder: (context, ref, child) {
-          var countData = ref.watch(nameProvider);
-          return Center(
-            child: Text(countData.userName.toString()),
-          );
-        },
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          ref.read(nameProvider.notifier).changeName();
-        },
-        child: const Icon(Icons.change_circle),
-      ),
+      body: ref.watch(weatherProvider("chittagong")).when(data: (data) {
+        return Center(
+          child: Text(data),
+        );
+      }, error: (error, stackTrace) {
+        return Center(
+          child: Text(error.toString()),
+        );
+      }, loading: () {
+        return const Center(child: CircularProgressIndicator());
+      }),
     );
   }
 }
